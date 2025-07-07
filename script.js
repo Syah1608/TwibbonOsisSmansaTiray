@@ -256,5 +256,27 @@ document.addEventListener('DOMContentLoaded', function () {
         notification.classList.remove('show');
       }, 3000);
     }
-  });
+      const scale = 3;
+    const hdCanvas = document.createElement('canvas');
+    hdCanvas.width = canvas.width * scale;
+    hdCanvas.height = canvas.height * scale;
+    const hdContext = hdCanvas.getContext('2d');
+
+    const imgAspect = userImage.width / userImage.height;
+    const drawWidthHD = hdCanvas.width * zoomFactor;
+    const drawHeightHD = drawWidthHD / imgAspect;
+    const offsetXHD = (hdCanvas.width - drawWidthHD) / 2 + parseFloat(xOffsetSlider.value) * scale;
+    const offsetYHD = (hdCanvas.height - drawHeightHD) / 2 + parseFloat(yOffsetSlider.value) * scale;
+
+    hdContext.drawImage(userImage, offsetXHD, offsetYHD, drawWidthHD, drawHeightHD);
+    const hdFrame = new Image();
+    hdFrame.onload = () => {
+        hdContext.drawImage(hdFrame, 0, 0, hdCanvas.width, hdCanvas.height);
+        const link = document.createElement('a');
+        link.download = 'MPLS_SMANSA_TIRAY_HD.png';
+        link.href = hdCanvas.toDataURL('image/png');
+        link.click();
+    };
+    hdFrame.src = 'twibbon_mpls.png';
+});
   
