@@ -29,9 +29,9 @@ window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
 function drawImageOnCanvas() {
-  if (userImageLoaded) {
-    context.clearRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas.width, canvas.height);
 
+  if (userImageLoaded) {
     const imgAspect = userImage.width / userImage.height;
     drawWidth = canvas.width * zoomFactor;
     drawHeight = drawWidth / imgAspect;
@@ -40,8 +40,9 @@ function drawImageOnCanvas() {
     offsetY = (canvas.height - drawHeight) / 2 + parseFloat(yOffsetSlider.value);
 
     context.drawImage(userImage, offsetX, offsetY, drawWidth, drawHeight);
-    context.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
   }
+
+  context.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
 }
 
 uploadInput.addEventListener('change', function(event) {
@@ -164,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   frameImg.onload = function () {
-    context.drawImage(frameImg, 0, 0, canvas.width, canvas.height);
+    drawImageOnCanvas();
   };
 });
 
