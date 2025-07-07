@@ -1,4 +1,3 @@
-
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const uploadInput = document.getElementById('upload');
@@ -15,7 +14,7 @@ let offsetY = 0;
 let drawWidth = canvas.width;
 let drawHeight = canvas.height;
 let zoomFactor = 1;
-nameInput.addEventListener('input', updateTemplateText);
+    nameInput.addEventListener('input', updateTemplateText);
     originInput.addEventListener('input', updateTemplateText);
     reasonInput.addEventListener('input', updateTemplateText);
     mottoInput.addEventListener('input', updateTemplateText);
@@ -31,6 +30,30 @@ nameInput.addEventListener('input', updateTemplateText);
       document.getElementById('reason').textContent = reason;
       document.getElementById('motto').textContent = motto;
     }
+  
+    copyTextButton.addEventListener('click', function () {
+      const text = templateText.innerText;
+      copyTextToClipboard(text);
+      showNotification();
+    });
+  
+    function copyTextToClipboard(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
+    }
+  
+    function showNotification() {
+      notification.textContent = "Sudah di salin dan silahkan ke halaman selanjutnya";
+      notification.classList.add('show');
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 3000);
+    }
+  }
 const zoomSlider = document.getElementById('zoom-slider');
 const xOffsetSlider = document.getElementById('x-offset-slider');
 const yOffsetSlider = document.getElementById('y-offset-slider');
