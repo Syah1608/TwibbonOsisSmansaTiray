@@ -1,6 +1,3 @@
-# Karena state sebelumnya ter-reset, kita ulangi proses penyimpanan file hasil gabungan script
-
-merged_script = """
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const uploadInput = document.getElementById('upload');
