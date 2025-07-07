@@ -15,7 +15,22 @@ let offsetY = 0;
 let drawWidth = canvas.width;
 let drawHeight = canvas.height;
 let zoomFactor = 1;
-
+nameInput.addEventListener('input', updateTemplateText);
+    originInput.addEventListener('input', updateTemplateText);
+    reasonInput.addEventListener('input', updateTemplateText);
+    mottoInput.addEventListener('input', updateTemplateText);
+  
+    function updateTemplateText() {
+      const name = nameInput.value || 'Nama';
+      const origin = originInput.value || 'Asal sekolah';
+      const reason = reasonInput.value || 'Alasan bergabung';
+      const motto = mottoInput.value || 'Motto';
+  
+      document.getElementById('name').textContent = name;
+      document.getElementById('origin').textContent = origin;
+      document.getElementById('reason').textContent = reason;
+      document.getElementById('motto').textContent = motto;
+    }
 const zoomSlider = document.getElementById('zoom-slider');
 const xOffsetSlider = document.getElementById('x-offset-slider');
 const yOffsetSlider = document.getElementById('y-offset-slider');
