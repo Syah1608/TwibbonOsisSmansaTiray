@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +6,10 @@
     <title>Twibbon MPLS SMAN 1 Tikke Raya 2024</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    
 </head>
 <body>
     <header class="header">
@@ -20,17 +20,17 @@
         <h1 class="welcome-title">Selamat datang para siswa baru SMANSA TIRAY. Silahkan isi dan masukkan foto kamu yaa, semangat MPLS-nyaa!</h1>
         
         <div class="text-controls">
-            <input type="text" id="name-input" class="text-input" placeholder="Nama">
-            <input type="text" id="origin-input" class="text-input" placeholder="Asal sekolah">
-            <input type="text" id="reason-input" class="text-input" placeholder="Alasan bergabung">
-            <input type="text" id="motto-input" class="text-input" placeholder="Motto (opsional)">
+             <input type="text" id="name-input" class="text-input" placeholder="Nama">
+      <input type="text" id="origin-input" class="text-input" placeholder="Asal sekolah">
+      <input type="text" id="reason-input" class="text-input" placeholder="Alasan bergabung">
+      <input type="text" id="motto-input" class="text-input" placeholder="Motto (opsional)">
             <div id="template-text" class="template-text">
                 Halo sobat SMANSA TIRAY perkenalan saya <span id="name">Nama</span> dari <span id="origin">Asal sekolah</span>. Saya kini siap menjadi bagian dari keluarga besar UPTD SMAN 1 Tikke Raya 🏫‼<br><br>
-                🌟 “Aku siap membuka lembaran baru di SMA Negeri 1 Tikke Raya! MPLS 2025 bukan sekadar masa pengenalan, tapi awal perjalanan seru penuh ilmu, teman baru, dan pengalaman berharga. Yuk, bersama kita wujudkan mimpi dan raih prestasi 🏅<br><br>
-                Harapan saya ketika bergabung ke SMANSA TIRAY adalah <span id="reason">Alasan bergabung</span><br><br>
-                Motto : <span id="motto">-</span><br><br>
-                "for us and for a brighter future"✨<br><br>
-                #MPLS2025 #SMAN1TikkeRaya #smansa_tiray #imreadyformpls #osis_smansa_tiray
+        🌟 “Aku siap membuka lembaran baru di SMA Negeri 1 Tikke Raya! MPLS 2025 bukan sekadar masa pengenalan, tapi awal perjalanan seru penuh ilmu, teman baru, dan pengalaman berharga. Yuk, bersama kita wujudkan mimpi dan raih prestasi 🏅<br><br>
+        Harapan saya ketika bergabung ke SMANSA TIRAY adalah <span id="reason">Alasan bergabung</span><br><br>
+        Motto : <span id="motto">-</span><br><br>
+        "for us and for a brighter future"✨<br><br>
+        #MPLS2025 #SMAN1TikkeRaya #smansa_tiray #imreadyformpls #osis_smansa_tiray
             </div>
             <div class="salin"><button id="copy-text-btn">Salin Text</button></div>
         </div>
@@ -41,21 +41,38 @@
         </div>
         <div class="controls">
             <label class="custom-file-upload">
-                <input type="file" id="upload" accept="image/*"><div class="tek">Upload Image</div>
+                <input type="file" id="upload" accept="image/*"><div class="tek">
+                Upload Image </div>
             </label>
+        <div class="controls">
             <label for="zoom-slider">Zoom:</label>
             <input type="range" id="zoom-slider" min="0.5" max="2" step="0.01" value="1">
+            <br>
             <label for="x-offset-slider">Geser Kanan/Kiri:</label>
             <input type="range" id="x-offset-slider" min="-200" max="200" step="1" value="0">
+            <br>
             <label for="y-offset-slider">Geser Atas/Bawah:</label>
             <input type="range" id="y-offset-slider" min="-200" max="200" step="1" value="0">
+        </div>
+       
             <span id="file-name"></span>
             <button id="download-btn">Download</button>
+
+            <!-- Add zoom in button -->
+            
+
+            <!-- Add draggable box for moving the image -->
+            <div class="drag-box" id="drag-box"></div>
         </div>
     </div>
 
     <div id="notification" class="notification">Text copied to clipboard!</div>
     <div id="spam-notification" class="spam-notification">Text sudah di salin loh ya, jadi jangan spam.</div>
+  
+    
+    
+    
+    
 
     <script src="script.js"></script>
 </body>
