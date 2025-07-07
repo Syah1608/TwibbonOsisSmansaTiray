@@ -124,26 +124,19 @@ body {
     width: 100%; /* Ensure the frame is responsive */
 }
 
-.frame {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
 .frame1-img {
-  width: 100%;
-  height: auto;
-  position: relative;
-  display: block;
+    width: 100%; /* Full width of the frame */
+    height: 100%; /* Full height of the frame */
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 canvas {
-  width: 100%;
-  height: auto;
-  display: block;
+    width: 100%; /* Full width of the frame */
+    height: 100%; /* Full height of the frame */
+    border: 1px solid #ddd;
 }
-
 
 /* Kontrol slider untuk zoom dan geser */
 .controls {
@@ -267,11 +260,6 @@ canvas {
     visibility: visible;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
-.notification.show {
-  visibility: visible;
-  animation: fadein 0.5s, fadeout 0.5s 2.5s;
-}
-
 
 @keyframes fadein {
     from {bottom: 0; opacity: 0;}
