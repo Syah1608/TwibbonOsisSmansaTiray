@@ -124,19 +124,26 @@ body {
     width: 100%; /* Ensure the frame is responsive */
 }
 
+.frame {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
 .frame1-img {
-    width: 100%; /* Full width of the frame */
-    height: 100%; /* Full height of the frame */
-    position: absolute;
-    top: 0;
-    left: 0;
+  width: 100%;
+  height: auto;
+  position: relative;
+  display: block;
 }
 
 canvas {
-    width: 100%; /* Full width of the frame */
-    height: 100%; /* Full height of the frame */
-    border: 1px solid #ddd;
+  width: 100%;
+  height: auto;
+  display: block;
 }
+
 
 /* Kontrol slider untuk zoom dan geser */
 .controls {
