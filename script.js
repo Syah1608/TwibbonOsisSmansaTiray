@@ -129,10 +129,39 @@ yOffsetSlider.addEventListener('input', function() {
 
 //Menangani tombol download
 downloadButton.addEventListener('click', function() {
-    if (!userImageLoaded) {
-        alert("Silakan unggah gambar terlebih dahulu.");
-        return;
-    }
+  if (!userImageLoaded) {
+    alert("Silakan unggah gambar terlebih dahulu.");
+    return;
+  }
+
+  // Buat canvas sementara beresolusi tinggi
+  const exportCanvas = document.createElement('canvas');
+  const exportSize = 1080; // Resolusi HD 1080x1080
+  exportCanvas.width = exportSize;
+  exportCanvas.height = exportSize;
+  const exportCtx = exportCanvas.getContext('2d');
+
+  // Hitung ulang gambar agar proporsional
+  const imgAspect = userImage.width / userImage.height;
+  let exportDrawWidth = exportSize * zoomFactor;
+  let exportDrawHeight = exportDrawWidth / imgAspect;
+
+  const exportOffsetX = (exportSize - exportDrawWidth) / 2 + parseFloat(xOffsetSlider.value);
+  const exportOffsetY = (exportSize - exportDrawHeight) / 2 + parseFloat(yOffsetSlider.value);
+
+  exportCtx.clearRect(0, 0, exportSize, exportSize);
+  exportCtx.drawImage(userImage, exportOffsetX, exportOffsetY, exportDrawWidth, exportDrawHeight);
+  exportCtx.drawImage(frameImg, 0, 0, exportSize, exportSize);
+
+  // Unduh hasil
+  const link = document.createElement('a');
+  link.download = 'MPLS_SMANSA_TIRAY_HD.png';
+  link.href = exportCanvas.toDataURL('image/png');
+  link.click();
+
+  // Tampilkan notifikasi download selesai
+  showDownloadNotification();
+});
 
     // Gambar ulang sebelum download
     drawImageOnCanvas();
