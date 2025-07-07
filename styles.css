@@ -118,25 +118,28 @@ body {
 }
 
 .frame {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 20px; /* Add some space below the frame */
-    width: 100%; /* Ensure the frame is responsive */
+  position: relative;
+  width: 100%;
+  max-width: 300px; /* Ukuran maksimal frame di HP */
+  margin: 0 auto 20px auto; /* Center dan margin bawah */
 }
+
 
 .frame1-img {
-    width: 100%; /* Full width of the frame */
-    height: 100%; /* Full height of the frame */
-    position: absolute;
-    top: 0;
-    left: 0;
+  width: 100%;
+  height: auto;
+  position: relative; /* Ganti absolute jadi relative */
+  display: block;
 }
 
+
 canvas {
-    width: 100%; /* Full width of the frame */
-    height: 100%; /* Full height of the frame */
-    border: 1px solid #ddd;
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 300px; /* Sesuai frame */
 }
+
 
 /* Kontrol slider untuk zoom dan geser */
 .controls {
