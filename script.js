@@ -277,6 +277,14 @@ document.addEventListener('DOMContentLoaded', function () {
       document.execCommand('copy');
       document.body.removeChild(textarea);
     }
+    function showDownloadNotification() {
+  const downloadNotification = document.getElementById('download-notification');
+  downloadNotification.classList.add('show');
+  setTimeout(() => {
+    downloadNotification.classList.remove('show');
+  }, 3000);
+}
+
   
     function showNotification() {
       notification.textContent = "Sudah di salin";
